@@ -20,7 +20,7 @@ export default {
   methods: {
     async fetchCryptoData() {
     
-      const res = await fetch('https://api.nomics.com/v1/currencies/ticker?key=098b31cf28f6a5c39e2daffaff3e9809e41d435d')
+      const res = await fetch('https://api.nomics.com/v1/currencies/ticker?key=your_api_key')
       const data = await res.json()
       return data
     }
