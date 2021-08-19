@@ -1,4 +1,4 @@
-<template>
+<template>  
   <header class="bg-blue-400 text-white p-4 mb-8 text-3xl italic md:not-italic text-center">
      <img src="@/assets/bitcoin-coin.svg" alt="bitcoin"  class="h-20 float-left">
      <img src="@/assets/ethereum.svg" alt="bitcoin"  class=" h-20 float-right">
