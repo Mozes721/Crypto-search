@@ -12,7 +12,7 @@
 
 <script>
 import CryptoCoins from '@/components/CryptoCoins'
-
+ 
 export default {
   name: 'Home',
   components: {
