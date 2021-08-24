@@ -20,18 +20,15 @@ export default {
   },
   data() {
       return {
-        info: '',
-        // loading: false,
+        loading: false,
         cryptodata: [],
-        currency: 'BTC',
-   
         loadingImage: require('../assets/super-buu-hourglass.gif')
       }
     },
   methods: {
     async fetchCryptoData() {
     
-      const res = await fetch('https://api.nomics.com/v1/currencies/ticker?key=your_api_key')
+      const res = await fetch('https://api.nomics.com/v1/currencies/ticker?key=ba659a90cd165d860bb631048dd09e1fab4a2f47')
       const data = await res.json()
       return data
     }
