@@ -2,7 +2,7 @@
   <main v-if="!loading">
     <CryptoCoin :cryptodata="cryptodata" />
   
-    <CryptoSelect :cryptodata="cryptodata"/>
+    <CryptoSelect @get-crypto="getCryptoData" :cryptodata="cryptodata"/>
   </main>
 
   <main class="flex flex-col align-center justify-center text-center" v-else>
@@ -40,6 +40,9 @@ export default {
       return data
     
     },
+    getCryptoData(crypto) {
+      this.cryptodata = data[crypto]
+    }
   },
     async created() {
       const data = await this.fetchCryptoData()
