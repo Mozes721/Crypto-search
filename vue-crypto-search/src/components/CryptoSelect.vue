@@ -7,7 +7,7 @@
     <button @click="onPress()" class="bg-red-400 hover:bg-red-300 rounded text-white p-2 pl-4 pr-4">
                 <p class="font-semibold text-xs">Search</p>
     </button>
-    
+      
 </div>
 <br>
 <h1 class="text-center font-mono text-6xl">Or</h1>
