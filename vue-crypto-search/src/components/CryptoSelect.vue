@@ -34,8 +34,9 @@ export default {
         onPress() {
             console.log(this.searched)
             if (this.cryptodata.find((item) => item.name.toLowerCase() === this.searched.toLowerCase())) {
-                const coin = this.cryptodata.find((item) => item.name === this.searched)
-                this.$emit('get-crypto', coin)
+                this.searched = this.item.name
+                console.log(this.searched)
+                this.$emit('get-crypto', this.searched)
             }else {
                 alert("Not found: " + this.searched)
             }
@@ -45,7 +46,7 @@ export default {
             const coin = this.cryptodata.find((item) => item.name === this.selected)
             console.log(this.selected)
             console.log(coin)
-            this.$emit('get-crypto', coin)
+            this.$emit('get-crypto', this.selected)
         }
     }
 }
