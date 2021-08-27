@@ -38,7 +38,7 @@ export default {
       const res = await fetch('https://api.nomics.com/v1/currencies/ticker?key=ba659a90cd165d860bb631048dd09e1fab4a2f47')
       const data = await res.json()
       return data
-    
+     
     },
     getCryptoData(crypto) {
       this.cryptodata = data.find(coin => coin.name === crypto)
