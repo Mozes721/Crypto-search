@@ -41,12 +41,13 @@ export default {
     
     },
     getCryptoData(crypto) {
-      this.cryptodata = data[crypto]
+      this.cryptodata = data.find(coin => coin.name === crypto)
     }
   },
     async created() {
       const data = await this.fetchCryptoData()
-      this.cryptodata = data
+      this.cryptodata = data.find(coin => coin.name === this.name)
+      console.log(this.cryptodata)
       // this.cryptoSearched = data
       // this.currency = data.currency
       // this.logo_url = data.logo_url
