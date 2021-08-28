@@ -34,9 +34,7 @@ export default {
         onPress() {
             console.log(this.searched)
             if (this.cryptodata.find((item) => item.name.toLowerCase() === this.searched.toLowerCase())) {
-                this.searched = this.item.name
-                console.log(this.searched)
-                this.$emit('get-crypto', this.searched)
+                this.$emit('get-crypto', this.selected)
             }else {
                 alert("Not found: " + this.searched)
             }
@@ -51,4 +49,3 @@ export default {
     }
 }
 </script>
- 
