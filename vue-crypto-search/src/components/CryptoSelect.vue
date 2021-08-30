@@ -13,9 +13,9 @@
 <h1 class="text-center font-mono text-6xl">Or</h1>
 <br>
 <select @change="onChange()"
-  v-model="selected" class="form-select block w-full border p-3 rounded mt-10 bg-blue-50">
+  ref="selected" class="form-select block w-full border p-3 rounded mt-10 bg-blue-50">
 	<option value="0">Select your coin</option>
-	<option v-for="crypto in cryptodata" :value="crypto.ID" :key="crypto.ID">{{crypto.name}}</option>
+	<option v-for="crypto in cryptodata" v-bind:value="crypto.value">{{crypto.name}}</option>
 </select>
 </section>
 </template>
@@ -42,8 +42,8 @@ export default {
         },
         onChange() {
             const coin = this.cryptodata.find((item) => item.name === this.selected)
-            console.log(this.selected)
-            console.log(coin)
+            console.log(this.$refs.selected)
+            
             this.$emit('get-crypto', this.selected)
         }
     }
