@@ -2,7 +2,7 @@
   <main v-if="!loading">
     <CryptoCoin :cryptocoin="cryptocoin" />
   
-    <CryptoSelect @get-crypto="getCryptoData" :cryptodata="cryptodata"/>
+    <CryptoSelect @get-crypto="getCryptoData" v-bind:cryptodata="cryptodata"/>
   </main>
 
   <main class="flex flex-col align-center justify-center text-center" v-else>

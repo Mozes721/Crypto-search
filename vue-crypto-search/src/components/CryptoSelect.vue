@@ -12,39 +12,40 @@
 <br>
 <h1 class="text-center font-mono text-6xl">Or</h1>
 <br>
-<select @change="onChange()"
-  ref="selected" class="form-select block w-full border p-3 rounded mt-10 bg-blue-50">
-	<option value="0">Select your coin</option>
-	<option v-for="crypto in cryptodata" v-bind:value="crypto.value">{{crypto.name}}</option>
+<select v-model="selected"
+ class="form-select block w-full border p-3 rounded mt-10 bg-blue-50">
+	<option disabled value="">Select your Coin</option>
+	<option v-for="crypto in cryptodata" v-bind:value="crypto.name" :key="crypto">{{crypto.name}}</option>
 </select>
+<span>Selected : {{selected}}</span>
 </section>
 </template>
 
 <script>
 export default {
     name: 'CryptoSelect',
-    props: ['cryptodata'],
+    props: ['cryptodata', 'coinselect'],
     data () {
         return {
     searched: '',
-	selected: 0
+    selected: ''
 	}
     },
     methods: {
         onPress() {
             console.log(this.searched)
             if (this.cryptodata.find((item) => item.name.toLowerCase() === this.searched.toLowerCase())) {
-                this.$emit('get-crypto', this.selected)
+                this.$emit('get-crypto', this.searched)
+                
             }else {
                 alert("Not found: " + this.searched)
             }
             this.searched = ''
         },
-        onChange() {
-            const coin = this.cryptodata.find((item) => item.name === this.selected)
-            console.log(this.$refs.selected)
-            
-            this.$emit('get-crypto', this.selected)
+    },
+    watch: {
+        selected() {
+            console.log(this.selected)
         }
     }
 }
