@@ -1,8 +1,10 @@
 <template>
+<div class="id">
   <Header />
   <div class ="container">
     <router-view />
   </div>
+</div>
 </template>
 
 <script>

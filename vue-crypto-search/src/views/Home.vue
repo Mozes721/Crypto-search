@@ -1,6 +1,6 @@
 <template>
   <main v-if="!loading">
-    <CryptoCoin :cryptocoin="cryptocoin" />
+    <CryptoCoin v-bind:cryptocoin="cryptocoin" />
   
     <CryptoSelect @get-crypto="getCryptoData" v-bind:cryptodata="cryptodata"/>
   </main>
@@ -24,7 +24,7 @@ export default {
   },
   data() {
       return {
-        loading: false, 
+        loading: true, 
         name: 'Bitcoin',
         cryptodata: [],
         cryptocoin: [],
@@ -39,20 +39,17 @@ export default {
      
     },
     getCryptoData(crypto) {
-      this.cryptodata = data[crypto]
-    }
+      this.loading = true
+      this.name = crypto
+      this.cryptocoin = this.cryptodata.find(coin => coin.name === this.name)
+      this.loading = false
+    },
   },
     async created() {
       const data = await this.fetchCryptoData()
       this.cryptodata = data
-      this.cryptocoin = data.find(coin => coin.name === this.name)
-      // this.cryptoSearched = data
-      // this.currency = data.currency
-      // this.logo_url = data.logo_url
-      // this.stats = data.id
-      // this.price = data.price
-      // this.circulating_supply = data.circulating_supply
-      // this.market_cap = data.market_cap
+      this.cryptocoin = this.cryptodata.find(coin => coin.name === this.name)
+      this.loading = false
     },
 }
 </script>

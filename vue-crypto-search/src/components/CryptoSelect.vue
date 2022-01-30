@@ -17,7 +17,6 @@
 	<option disabled value="">Select your Coin</option>
 	<option v-for="crypto in cryptodata" v-bind:value="crypto.name" :key="crypto">{{crypto.name}}</option>
 </select>
-<span>Selected : {{selected}}</span>
 </section>
 </template>
 
@@ -45,7 +44,7 @@ export default {
     },
     watch: {
         selected() {
-            console.log(this.selected)
+            this.$emit('get-crypto', this.selected)
         }
     }
 }
