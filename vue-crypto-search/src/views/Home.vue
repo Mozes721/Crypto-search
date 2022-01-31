@@ -39,11 +39,21 @@ export default {
      
     },
     getCryptoData(crypto) {
+      
       this.loading = true
+
       this.name = crypto
       this.cryptocoin = this.cryptodata.find(coin => coin.name === this.name)
-      this.loading = false
+      setInterval(this.updateCryptoData, 3000);
+      
+      
+      
     },
+    updateCryptoData() {
+      console.log(`Printed crypto after 3 seconds`)
+      
+      this.loading = false
+    }
   },
     async created() {
       const data = await this.fetchCryptoData()
