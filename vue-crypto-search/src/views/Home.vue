@@ -50,8 +50,6 @@ export default {
       
     },
     updateCryptoData() {
-      console.log(`Printed crypto after 3 seconds`)
-      
       this.loading = false
     }
   },
