@@ -32,7 +32,6 @@ export default {
     },
     methods: {
         onPress() {
-            console.log(this.searched)
             if (this.cryptodata.find((item) => item.name.toLowerCase() === this.searched.toLowerCase())) {
                 this.$emit('get-crypto', this.searched)
                 
