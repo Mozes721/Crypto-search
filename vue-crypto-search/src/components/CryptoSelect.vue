@@ -23,7 +23,7 @@
 <script>
 export default {
     name: 'CryptoSelect',
-    props: ['cryptodata', 'coinselect'],
+    props: ['cryptodata'],
     data () {
         return {
     searched: '',
